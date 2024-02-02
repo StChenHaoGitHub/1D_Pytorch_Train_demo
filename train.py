@@ -1,11 +1,12 @@
 import numpy as np
 import torch
 import matplotlib.pyplot as plt
-from torch.utils.data import DataLoader, Dataset
-from torch.utils.data import random_split
+from torch.utils.data import DataLoader, Dataset,random_split
 from Package_dataset import package_dataset
-import os
-os.environ['KMP_DUPLICATE_LIB_OK']='True'
+
+
+# import os
+# os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 from Models.LeNet import LeNet
 from Models.AlexNet import AlexNet
@@ -55,8 +56,8 @@ class Dataset(Dataset):
 # 数据库dataloader
 Train_dataset = Dataset(train_dataset)
 Test_dataset = Dataset(test_dataset)
-dataloader = DataLoader(Train_dataset, shuffle=True, batch_size=700)
-testloader = DataLoader(Test_dataset, shuffle=True, batch_size=300)
+dataloader = DataLoader(Train_dataset, shuffle=True, batch_size=50)
+testloader = DataLoader(Test_dataset, shuffle=True, batch_size=50)
 # 训练设备选择GPU还是CPU
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -91,8 +92,10 @@ test_acc_list = []
 
 # 训练函数
 def train(epoch):
+    model.train()
     train_correct = 0
     train_total = 0
+
     for data in dataloader:
         train_data_value, train_data_label = data
         train_data_value, train_data_label = train_data_value.to(device), train_data_label.to(device)
@@ -101,10 +104,10 @@ def train(epoch):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+    if epoch % show_result_epoch == 0:
         probability, predicted = torch.max(train_data_label_pred.data, dim=1)
         train_total += train_data_label_pred.size(0)
         train_correct += (predicted == train_data_label).sum().item()
-    if epoch % show_result_epoch == 0:
         train_acc = round(100 * train_correct / train_total, 4)
         train_acc_list.append(train_acc)
         print('=' * 10, epoch // 10, '=' * 10)
@@ -115,6 +118,7 @@ def train(epoch):
 
 # 测试函数
 def test():
+    model.eval()
     test_correct = 0
     test_total = 0
     with torch.no_grad():
