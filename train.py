@@ -76,7 +76,8 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 # model =MobileNetV3_small(in_channels=channels, classes=classes)
 # model =MobileNetV3_large(in_channels=channels, classes=classes)
 # model =shuffuleNetV1_G3(in_channels=channels, classes=classes)
-model =shuffuleNetV2(in_channels=channels, classes=classes)
+# model =shuffuleNetV2(in_channels=channels, classes=classes)
+model =Xception(in_channels=channels, classes=classes)
 model.to(device)
 
 # 损失函数选择
