@@ -30,6 +30,7 @@ class MobileNetV1(nn.Module):
             DepthwiseSeparableConv(512, 512, stride=1),
             DepthwiseSeparableConv(512, 512, stride=1),
             DepthwiseSeparableConv(512, 512, stride=1),
+            DepthwiseSeparableConv(512, 512, stride=1),
             DepthwiseSeparableConv(512, 1024, stride=2),
             DepthwiseSeparableConv(1024, 1024, stride=1),
             nn.AdaptiveAvgPool1d(1)
