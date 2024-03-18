@@ -131,6 +131,7 @@ from Models.MobileNetV3 import MobileNetV3_large, MobileNetV3_small
 from Models.shuffuleNetV1 import shuffuleNetV1_G3
 from Models.shuffuleNetV2 import shuffuleNetV2
 from Models.Xception import Xception
+from Models.EfficientNet import EfficientNetB0
 ```
 ### 3.2 load dataset
 Loding dataset and read the value and label.
@@ -210,7 +211,9 @@ Where 'model.to(device)' is to deploy the model to the 'device' we selected in t
 # model =MobileNetV3_small(in_channels=channels, classes=classes)
 # model =MobileNetV3_large(in_channels=channels, classes=classes)
 # model =shuffuleNetV1_G3(in_channels=channels, classes=classes)
-model =shuffuleNetV2(in_channels=channels, classes=classes)
+# model =shuffuleNetV2(in_channels=channels, classes=classes)
+# model =Xception(in_channels=channels, classes=classes)
+model =EfficientNetB0(in_channels=channels, classes=classes)
 model.to(device)
 ```
 ### 3.8 choose loss function
