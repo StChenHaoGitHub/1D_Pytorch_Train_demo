@@ -23,6 +23,7 @@ from Models.MobileNetV3 import MobileNetV3_large, MobileNetV3_small
 from Models.shuffuleNetV1 import shuffuleNetV1_G3
 from Models.shuffuleNetV2 import shuffuleNetV2
 from Models.Xception import Xception
+from Models.EfficientNet import EfficientNetB0
 
 data = np.load('Dataset/data.npy')
 label = np.load('Dataset/label.npy')
@@ -77,7 +78,8 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 # model =MobileNetV3_large(in_channels=channels, classes=classes)
 # model =shuffuleNetV1_G3(in_channels=channels, classes=classes)
 # model =shuffuleNetV2(in_channels=channels, classes=classes)
-model =Xception(in_channels=channels, classes=classes)
+# model =Xception(in_channels=channels, classes=classes)
+model =EfficientNetB0(in_channels=channels, classes=classes)
 model.to(device)
 
 # 损失函数选择
