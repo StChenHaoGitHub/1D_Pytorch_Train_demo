@@ -1,7 +1,5 @@
 # 1D_Pytorch_Train_demo
 A pytorch train demo with classical CNN models
-My Blog adress: [chen-hao.blog.csdn.net](chen-hao.blog.csdn.net)
-
 
 ##  1.Generate simulation datasets -Create_dataset.py  
 
