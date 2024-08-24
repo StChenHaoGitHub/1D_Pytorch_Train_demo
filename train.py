@@ -63,7 +63,7 @@ testloader = DataLoader(Test_dataset, shuffle=True, batch_size=50)
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # 模型初始化
-# model = LeNet(in_channels=channels, input_sample_points=length, classes=classes)
+model = LeNet(in_channels=channels, input_sample_points=length, classes=classes)
 # model = AlexNet(in_channels=channels, input_sample_points=length, classes=classes)
 # model = AlexNet(in_channels=channels, input_sample_points=length, classes=classes)
 # model = ZFNet(in_channels=channels, input_sample_points=length, classes=classes)
@@ -79,7 +79,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 # model =shuffuleNetV1_G3(in_channels=channels, classes=classes)
 # model =shuffuleNetV2(in_channels=channels, classes=classes)
 # model =Xception(in_channels=channels, classes=classes)
-model =EfficientNetB0(in_channels=channels, classes=classes)
+# model =EfficientNetB0(in_channels=channels, classes=classes)
 model.to(device)
 
 # 损失函数选择
