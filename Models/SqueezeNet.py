@@ -1,5 +1,5 @@
 import torch
-from torchsummary import summary
+# from torchsummary import summary
 class FireModule(torch.nn.Module):
     def __init__(self, in_channels, squeeze_channels, expand1x1_channels, expand1x3_channels):
         super(FireModule, self).__init__()
