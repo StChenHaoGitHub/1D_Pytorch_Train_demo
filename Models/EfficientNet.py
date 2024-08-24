@@ -1,5 +1,5 @@
 import torch
-from thop import profile
+# from thop import profile
 
 class SEModule(torch.nn.Module):
     def __init__(self,in_channel,ratio=4):
@@ -124,8 +124,8 @@ if __name__ == '__main__':
     # input = torch.randn((1,1,224))
     model = EfficientNetB0(2,200)
 
-    input = torch.randn(1, 2, 200)
-    flops, params = profile(model, inputs=(input,))
+    # input = torch.randn(1, 2, 200)
+    # flops, params = profile(model, inputs=(input,))
 
-    print("FLOPs=", str(flops / 1e6) + '{}'.format("M"))
-    print("params=", str(params / 1e6) + '{}'.format("M"))
+    # print("FLOPs=", str(flops / 1e6) + '{}'.format("M"))
+    # print("params=", str(params / 1e6) + '{}'.format("M"))
